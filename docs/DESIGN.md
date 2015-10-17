@@ -10,6 +10,7 @@ What we want as the stories to be stored as:
   {
     title: "my title",
     author: "my author",
+    grade: 4,
     cover: "COVER IMAGE ID"
     [
       {
@@ -44,7 +45,7 @@ audio clips:
 
 Ricky
 
-* step 1: record story text
+* step 1: record story text (sentence by sentence)
 * step 2: post story text to story collection
 * step 3: record audio for a sentence on client
 * step 4: post audio per sentence to audio clips collection
@@ -58,4 +59,4 @@ Hanyon
 
 Yifei 
 
-* replay story
+* replay story (back and forth)
