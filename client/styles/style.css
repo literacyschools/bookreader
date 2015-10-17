@@ -1,0 +1,11 @@
+#a{
+	color:blue;
+}
+
+#progress{
+	width:100PX;
+	height: 2px;
+	background-color: blue;
+	border-radius: 5px;
+}
+#progressArea{}
