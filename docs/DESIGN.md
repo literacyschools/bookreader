@@ -1,4 +1,8 @@
 
+## Design
+
+## Collections
+
 What we want as the stories to be stored as:
 
 ```
@@ -29,7 +33,7 @@ audio clips:
 ```
 [
   {
-    id: "AUDIO ID",
+    id: "AUDIO[SENTENCE,WORD] ID",
     audio_blob: "AUDIO BLOB"
   }
 ]
