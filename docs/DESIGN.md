@@ -11,8 +11,8 @@ What we want as the stories to be stored as:
     title: "my title",
     author: "my author",
     grade: 4,
-    cover: "COVER IMAGE ID"
-    [
+    cover: "COVER IMAGE ID",
+    story: [
       {
         sentences: [
           { 

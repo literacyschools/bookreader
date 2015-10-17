@@ -21,30 +21,29 @@
 </template>
 
 <template name="catalog">
-  <button>Click Me Please This is soooo awesome</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<ul>
+{{#each stories}}
+  <li>
+    <h2><a href="/play/{{_id}}">{{title}}</a></h2>
+    <h3>{{author}}</h3>
+  </li>
+{{/each}}
+</ul>
+<button id="create">Create</button>
 </template>
 
-<template name="record">
-  <button id="start">Record</button>
+<template name="editaudio">
+  <button id="start" disabled>Record</button>
   <button id="stop" disabled>Stop</button>
-  <div id="label"></div>
-  <br>
-  <div class="container">
-    <!-- we don't use autoplay so we can find to the video events -->
-    <video controls muted id="preview"></video>
-    <div class="overlay">
-        <div id="text-overlay"></div>
-    </div>
-    <video controls id="replay"></video>
-    <div class="bar"></div>
-    <div class="timeline" id="timeline">
-    </div>
-    <ul class="list-blobs"></ul>
-  </div>
+  <button id="play">Play</button>
+  <button id="stopplay">Stop Play</button>
 </template>
+
+<template name="edit">
+</template>
+
+
 
 <template name="play">
-  <button>Click Me Please This is soooo awesome</button>
-  <p>You've pressed the button {{counter}} times.</p>
+
 </template>

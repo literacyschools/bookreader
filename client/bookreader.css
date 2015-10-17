@@ -52,7 +52,7 @@ label {
     width: 8em;
 }
 
-button, input[type=button] {
+/*button, input[type=button] {
     -moz-border-radius: 3px;
     -moz-transition: none;
     -webkit-transition: none;
@@ -71,7 +71,7 @@ button, input[type=button] {
     text-shadow: 1px 1px 1px #076bd2;
     font-size: 1.5em;
 }
-
+*/
 .timeline {
     white-space:nowrap;
     overflow-x: scroll;
