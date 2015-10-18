@@ -104,5 +104,6 @@ Template.editaudio.events({
 
   'click #words':  function () {
     console.log("convert to words");
+    Meteor.call('processWords2', this.sentence.recording, this.story._id, this.sentence);
   }
 });

@@ -21,6 +21,7 @@
   <button id="start">Record</button>
   <button id="stop">Stop</button>
   <button id="play">Play</button>
+  <button id="words">Words</button>
 </template>
 
 <template name="edit">
@@ -36,7 +37,14 @@
   {{#each sentences}}
    <div>{{sentence}}</div>
    <div>recording: {{recording}}</div>
-   {{> editaudio sentence=this story=..}}
+   <div>words:</div>
+   <ul>
+    {{#each words}}
+    <li><div>{{word}} start: {{start}} end: {{end}}</div></li>
+    {{/each}}
+    </ul>
+  {{> editaudio sentence=this story=..}}
+
   {{/each}}
 </template>
 
