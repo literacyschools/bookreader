@@ -38,17 +38,19 @@ var createStory = function(ibmJson, originalSentences, callback) {
 
   // check sentence with original sentences
   if(sentences.length != originalSentences.length){
-    var error = {
-      "status": "error",
-      "message": "number of senteces do not match"
-    }
-    return callback(error);
+    // var error = {
+    //   "status": "error",
+    //   "message": "number of senteces do not match"
+    // }
+    // return callback(error);
+    return callback(null, story);
   }
 
   sentences.forEach(function(sentence, i){
     var originalSentence = originalSentences[i];
     var originalWords = originalSentence.split(' ');
     if(sentence.length == originalWords.length){
+      sentence.sentence = originalSentence;
       sentence.forEach(function(word, j){
         word.word = originalWords[j];
       })
@@ -57,10 +59,11 @@ var createStory = function(ibmJson, originalSentences, callback) {
   return callback(null, story);
 }
 
-var start = function(filename, originalSentences, callback) {
+var start = function(filename, 
+                     originalSentences,
+                     callback) {
   var params = {
     // From file
-    // audio: fs.createReadStream('./audio5.wav'),
     audio: fs.createReadStream(filename),
     content_type: 'audio/wav; rate=44100',
     timestamps: true,
@@ -71,26 +74,31 @@ var start = function(filename, originalSentences, callback) {
   speech_to_text.recognize(params, function(err, res) {
     if (err) {
       console.log(err);
-      callback(err);
+      return callback(err);
     }
     else{
-      var story = createStory(res, originalSentences, callback);
-      console.log(JSON.stringify(story, null, 2));
+      var story = createStory(res, 
+                              convertTextToJson(originalSentences), 
+                              callback);
+      return story;
+      // console.log(JSON.stringify(story, null, 2));
     }
   })
 };
 
-var originalSentences = JSON.parse(fs.createReadStream('./audio7.original.json'));
+var convertTextToJson = function(originalTxt){
+  // console.log(originalTxt)
+  var originalTextJson = {};
+  originalTextJson.originalSentences = originalTxt.split('.\n');
+  return originalTextJson;
+}
 
-start('./audio7.wav', originalSentences, function(err, story){
-  if(err){
-    return console.log(err);
-  }
-  return console.log(story);
-});
+var originalSentences = fs.readFileSync('./audio8.original.txt', 'utf8');
+// start('./audio8.wav', originalSentences, function(err, story){
+//   if(err){
+//     return console.log(err);
+//   }
+//   return console.log(JSON.stringify(story, null, 2));
+// });
 
-
-
-
-
-
+module.exports = start;
