@@ -14,7 +14,7 @@ What we want as the stories to be stored as:
     cover: "COVER IMAGE ID",
     sentences: [
       { 
-        id: "SENTENCE ID",
+        recording: 'audio id',
         sentence: "hello world",
         words: [
           { id: "WORD ID", word: "hello", "start": 1, "stop": 1.9 },

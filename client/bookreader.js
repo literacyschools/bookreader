@@ -69,46 +69,41 @@ Template.edit.events({
   'click #import': function () {
     var sentences = this.story.split('\n');
     var sentencesArray = sentences.map(function(sentence) {
-      return { sentence: sentence, start: null, end: null, recording: null}
+      return { sentence: sentence, recording: null}
     });
     Stories.update({ _id: this._id }, {$set: { sentences: sentencesArray }}); 
   }
 });
 
-Template.editaudio.helpers = function() {
+Template.editaudio.helpers({
+});
 
+Template.editaudio.rendered = function() {
+  //console.log(this.data);
 }
 
-Template.editaudio.events = function() {
-  'click #stop':  function () {
-      audio.stopRecording();
-      btnStopRecording.disabled = true;
-      btnStartRecording.disabled = false;
-  },
-
+Template.editaudio.events({
   'click #start':  function () {
     console.log("start recording");
-    btnStopRecording.disabled = false;
-    btnStartRecording.disabled = true;
+    var story = this.story;
+    var sentence = this.sentence;
     audio.startRecording({}, function(err, id) {
-      console.log('audio id ' + id  + ' for story ' + this._id + ' sentence ' + sentence);
-      this.recording = id;
+      Meteor.call('updateAudioId', story._id, id, sentence.sentence);
     });
-  };
+  },
+
+  'click #stop':  function () {
+      audio.stopRecording();
+  },
 
   'click #play':  function () {
     console.log("start playback");
-    var audioDoc = audio.findOne();
-    audioDoc.play();
-  };
+    this.audioDoc = audio.findOne(this.sentence.recording);
+    this.audioDoc.play();
+  },
 
   'click #stopplay':  function () {
     console.log("stop playback");
-    var audioDoc = audio.findOne();
-    audioDoc.stop();
-  };
-
-  btnStartRecording.disabled = false;
-  btnStopRecording.disabled = true;
-  btnPlayRecording.disabled = false;
-}
+    this.audioDoc.stop();
+  }
+});

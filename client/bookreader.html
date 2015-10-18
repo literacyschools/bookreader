@@ -17,13 +17,11 @@
 </template>
 
 
-
 <template name="editaudio">
-  <button id="start" disabled>Record</button>
-  <button id="stop" disabled>Stop</button>
+  <button id="start">Record</button>
+  <button id="stop">Stop</button>
   <button id="play">Play</button>
   <button id="stopplay">Stop Play</button>
-   {{_id}}
 </template>
 
 <template name="edit">
@@ -37,14 +35,10 @@
   <button id="import">Import</button>
   <textarea name="storyContent" value="{{story}}" rows=20 cols=80></textarea>
   {{#each sentences}}
-    {{>sentence}} 
+   <div>{{sentence}}</div>
+   <div>recording: {{recording}}</div>
+   {{> editaudio sentence=this story=..}}
   {{/each}}
-</template>
-
-<template name="sentence">
-   <div>{{sentence}}</div> 
-   <div>start: {{start}} end: {{end}} recording: {{recording}}</div>
-   {{> editaudio}}
 </template>
 
 <template name="play">
