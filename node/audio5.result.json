@@ -1,0 +1,488 @@
+{
+  "title": "TITLE",
+  "author": "AUTHOR",
+  "grade": 4,
+  "cover": "COVER IMAGE ID",
+  "sentences": [
+    {
+      "id": "SENTENCE ID",
+      "sentence": "the people who were there when the sun broke ",
+      "words": [
+        {
+          "id": "WORD ID",
+          "word": "the",
+          "start": 1.09,
+          "end": 1.2
+        },
+        {
+          "id": "WORD ID",
+          "word": "people",
+          "start": 1.2,
+          "end": 1.44
+        },
+        {
+          "id": "WORD ID",
+          "word": "who",
+          "start": 1.44,
+          "end": 1.59
+        },
+        {
+          "id": "WORD ID",
+          "word": "were",
+          "start": 1.59,
+          "end": 1.8
+        },
+        {
+          "id": "WORD ID",
+          "word": "there",
+          "start": 1.85,
+          "end": 2.12
+        },
+        {
+          "id": "WORD ID",
+          "word": "when",
+          "start": 2.12,
+          "end": 2.34
+        },
+        {
+          "id": "WORD ID",
+          "word": "the",
+          "start": 2.34,
+          "end": 2.44
+        },
+        {
+          "id": "WORD ID",
+          "word": "sun",
+          "start": 2.44,
+          "end": 2.76
+        },
+        {
+          "id": "WORD ID",
+          "word": "broke",
+          "start": 2.76,
+          "end": 3.04
+        }
+      ]
+    },
+    {
+      "id": "SENTENCE ID",
+      "sentence": "Iran is used to catch pink salmon ",
+      "words": [
+        {
+          "id": "WORD ID",
+          "word": "Iran",
+          "start": 4.08,
+          "end": 4.53
+        },
+        {
+          "id": "WORD ID",
+          "word": "is",
+          "start": 4.53,
+          "end": 4.67
+        },
+        {
+          "id": "WORD ID",
+          "word": "used",
+          "start": 4.67,
+          "end": 4.93
+        },
+        {
+          "id": "WORD ID",
+          "word": "to",
+          "start": 4.93,
+          "end": 5.05
+        },
+        {
+          "id": "WORD ID",
+          "word": "catch",
+          "start": 5.05,
+          "end": 5.38
+        },
+        {
+          "id": "WORD ID",
+          "word": "pink",
+          "start": 5.38,
+          "end": 5.7
+        },
+        {
+          "id": "WORD ID",
+          "word": "salmon",
+          "start": 5.7,
+          "end": 6.2
+        }
+      ]
+    },
+    {
+      "id": "SENTENCE ID",
+      "sentence": "the source of the river is a clear spring ",
+      "words": [
+        {
+          "id": "WORD ID",
+          "word": "the",
+          "start": 7.24,
+          "end": 7.36
+        },
+        {
+          "id": "WORD ID",
+          "word": "source",
+          "start": 7.36,
+          "end": 7.73
+        },
+        {
+          "id": "WORD ID",
+          "word": "of",
+          "start": 7.73,
+          "end": 7.87
+        },
+        {
+          "id": "WORD ID",
+          "word": "the",
+          "start": 7.87,
+          "end": 8.02
+        },
+        {
+          "id": "WORD ID",
+          "word": "river",
+          "start": 8.02,
+          "end": 8.56
+        },
+        {
+          "id": "WORD ID",
+          "word": "is",
+          "start": 8.56,
+          "end": 8.87
+        },
+        {
+          "id": "WORD ID",
+          "word": "a",
+          "start": 8.87,
+          "end": 8.92
+        },
+        {
+          "id": "WORD ID",
+          "word": "clear",
+          "start": 8.92,
+          "end": 9.19
+        },
+        {
+          "id": "WORD ID",
+          "word": "spring",
+          "start": 9.19,
+          "end": 9.67
+        }
+      ]
+    },
+    {
+      "id": "SENTENCE ID",
+      "sentence": "kick the ball shouldn't follow through ",
+      "words": [
+        {
+          "id": "WORD ID",
+          "word": "kick",
+          "start": 10.8,
+          "end": 11.08
+        },
+        {
+          "id": "WORD ID",
+          "word": "the",
+          "start": 11.08,
+          "end": 11.18
+        },
+        {
+          "id": "WORD ID",
+          "word": "ball",
+          "start": 11.18,
+          "end": 11.43
+        },
+        {
+          "id": "WORD ID",
+          "word": "shouldn't",
+          "start": 11.43,
+          "end": 11.86
+        },
+        {
+          "id": "WORD ID",
+          "word": "follow",
+          "start": 11.86,
+          "end": 12.1
+        },
+        {
+          "id": "WORD ID",
+          "word": "through",
+          "start": 12.1,
+          "end": 12.51
+        }
+      ]
+    },
+    {
+      "id": "SENTENCE ID",
+      "sentence": "help the women get back to her feet ",
+      "words": [
+        {
+          "id": "WORD ID",
+          "word": "help",
+          "start": 13.6,
+          "end": 13.88
+        },
+        {
+          "id": "WORD ID",
+          "word": "the",
+          "start": 13.88,
+          "end": 13.99
+        },
+        {
+          "id": "WORD ID",
+          "word": "women",
+          "start": 13.99,
+          "end": 14.29
+        },
+        {
+          "id": "WORD ID",
+          "word": "get",
+          "start": 14.29,
+          "end": 14.48
+        },
+        {
+          "id": "WORD ID",
+          "word": "back",
+          "start": 14.48,
+          "end": 14.72
+        },
+        {
+          "id": "WORD ID",
+          "word": "to",
+          "start": 14.72,
+          "end": 14.83
+        },
+        {
+          "id": "WORD ID",
+          "word": "her",
+          "start": 14.83,
+          "end": 14.97
+        },
+        {
+          "id": "WORD ID",
+          "word": "feet",
+          "start": 14.97,
+          "end": 15.32
+        }
+      ]
+    },
+    {
+      "id": "SENTENCE ID",
+      "sentence": "a pot of tea helped pass the evening ",
+      "words": [
+        {
+          "id": "WORD ID",
+          "word": "a",
+          "start": 16.67,
+          "end": 16.7
+        },
+        {
+          "id": "WORD ID",
+          "word": "pot",
+          "start": 16.7,
+          "end": 17
+        },
+        {
+          "id": "WORD ID",
+          "word": "of",
+          "start": 17,
+          "end": 17.15
+        },
+        {
+          "id": "WORD ID",
+          "word": "tea",
+          "start": 17.15,
+          "end": 17.42
+        },
+        {
+          "id": "WORD ID",
+          "word": "helped",
+          "start": 17.42,
+          "end": 17.89
+        },
+        {
+          "id": "WORD ID",
+          "word": "pass",
+          "start": 17.89,
+          "end": 18.17
+        },
+        {
+          "id": "WORD ID",
+          "word": "the",
+          "start": 18.17,
+          "end": 18.26
+        },
+        {
+          "id": "WORD ID",
+          "word": "evening",
+          "start": 18.26,
+          "end": 18.72
+        }
+      ]
+    },
+    {
+      "id": "SENTENCE ID",
+      "sentence": "Smokey fire black flame and he ",
+      "words": [
+        {
+          "id": "WORD ID",
+          "word": "Smokey",
+          "start": 20.11,
+          "end": 20.48
+        },
+        {
+          "id": "WORD ID",
+          "word": "fire",
+          "start": 20.48,
+          "end": 20.86
+        },
+        {
+          "id": "WORD ID",
+          "word": "black",
+          "start": 20.94,
+          "end": 21.21
+        },
+        {
+          "id": "WORD ID",
+          "word": "flame",
+          "start": 21.21,
+          "end": 21.5
+        },
+        {
+          "id": "WORD ID",
+          "word": "and",
+          "start": 21.5,
+          "end": 21.61
+        },
+        {
+          "id": "WORD ID",
+          "word": "he",
+          "start": 21.61,
+          "end": 21.88
+        }
+      ]
+    },
+    {
+      "id": "SENTENCE ID",
+      "sentence": "stop Christian book the men fall ",
+      "words": [
+        {
+          "id": "WORD ID",
+          "word": "stop",
+          "start": 23.12,
+          "end": 23.39
+        },
+        {
+          "id": "WORD ID",
+          "word": "Christian",
+          "start": 23.39,
+          "end": 23.75
+        },
+        {
+          "id": "WORD ID",
+          "word": "book",
+          "start": 23.75,
+          "end": 24.01
+        },
+        {
+          "id": "WORD ID",
+          "word": "the",
+          "start": 24.01,
+          "end": 24.11
+        },
+        {
+          "id": "WORD ID",
+          "word": "men",
+          "start": 24.11,
+          "end": 24.39
+        },
+        {
+          "id": "WORD ID",
+          "word": "fall",
+          "start": 24.39,
+          "end": 24.74
+        }
+      ]
+    },
+    {
+      "id": "SENTENCE ID",
+      "sentence": "I thought briefcase courtesy ",
+      "words": [
+        {
+          "id": "WORD ID",
+          "word": "I",
+          "start": 26.2,
+          "end": 26.24
+        },
+        {
+          "id": "WORD ID",
+          "word": "thought",
+          "start": 26.24,
+          "end": 26.57
+        },
+        {
+          "id": "WORD ID",
+          "word": "briefcase",
+          "start": 26.57,
+          "end": 27.1
+        },
+        {
+          "id": "WORD ID",
+          "word": "courtesy",
+          "start": 27.21,
+          "end": 27.91
+        }
+      ]
+    },
+    {
+      "id": "SENTENCE ID",
+      "sentence": "the girl at the booth Felicity von ",
+      "words": [
+        {
+          "id": "WORD ID",
+          "word": "the",
+          "start": 29.37,
+          "end": 29.45
+        },
+        {
+          "id": "WORD ID",
+          "word": "girl",
+          "start": 29.45,
+          "end": 29.7
+        },
+        {
+          "id": "WORD ID",
+          "word": "at",
+          "start": 29.7,
+          "end": 29.86
+        },
+        {
+          "id": "WORD ID",
+          "word": "the",
+          "start": 29.86,
+          "end": 29.94
+        },
+        {
+          "id": "WORD ID",
+          "word": "booth",
+          "start": 29.94,
+          "end": 30.29
+        },
+        {
+          "id": "WORD ID",
+          "word": "Felicity",
+          "start": 30.4,
+          "end": 30.92
+        },
+        {
+          "id": "WORD ID",
+          "word": "von",
+          "start": 30.92,
+          "end": 31.31
+        }
+      ]
+    }
+  ]
+}
