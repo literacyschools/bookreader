@@ -9,7 +9,7 @@ var speech_to_text = watson.speech_to_text({
   version: 'v1'
 });
 
-var createStory = function(ibmJson) {
+var createStory = function(ibmJson, originalSentences, callback) {
   var story = {};
   story.title = 'TITLE';
   story.author = 'AUTHOR';
@@ -17,7 +17,7 @@ var createStory = function(ibmJson) {
   story.cover = 'COVER IMAGE ID';
   story.sentences = [];
 
-  senteces = story.sentences;
+  var sentences = story.sentences;
 
   ibmJson.results.forEach(function(ibmSentence){
     var sentence = {};
@@ -33,12 +33,31 @@ var createStory = function(ibmJson) {
       word.end = ibmWord[2];
       sentence.words.push(word);
     })
-    senteces.push(sentence);
+    sentences.push(sentence);
   })
-  return story;
+
+  // check sentence with original sentences
+  if(sentences.length != originalSentences.length){
+    var error = {
+      "status": "error",
+      "message": "number of senteces do not match"
+    }
+    return callback(error);
+  }
+
+  sentences.forEach(function(sentence, i){
+    var originalSentence = originalSentences[i];
+    var originalWords = originalSentence.split(' ');
+    if(sentence.length == originalWords.length){
+      sentence.forEach(function(word, j){
+        word.word = originalWords[j];
+      })
+    }
+  })
+  return callback(null, story);
 }
 
-var start = function(filename) {
+var start = function(filename, originalSentences, callback) {
   var params = {
     // From file
     // audio: fs.createReadStream('./audio5.wav'),
@@ -52,12 +71,26 @@ var start = function(filename) {
   speech_to_text.recognize(params, function(err, res) {
     if (err) {
       console.log(err);
+      callback(err);
     }
     else{
-      var story = createStory(res);
+      var story = createStory(res, originalSentences, callback);
       console.log(JSON.stringify(story, null, 2));
     }
   })
 };
 
-start('./audio6.wav');
+var originalSentences = JSON.parse(fs.createReadStream('./audio7.original.json'));
+
+start('./audio7.wav', originalSentences, function(err, story){
+  if(err){
+    return console.log(err);
+  }
+  return console.log(story);
+});
+
+
+
+
+
+
