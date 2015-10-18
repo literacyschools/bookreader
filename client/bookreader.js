@@ -1,6 +1,7 @@
 'use strict';
 
 Meteor.subscribe('audio');
+Meteor.subscribe('stories');
 
 Router.configure({
   layoutTemplate: 'ApplicationLayout',
@@ -15,8 +16,12 @@ Router.route('/catalog', function () {
   this.render('catalog');
 });
 
-Router.route('/edit/:story', function () {
-  this.render('edit');
+Router.route('/edit/:_id', {
+  name: "edit",
+  data: function() {
+    var currentStory = this.params._id;
+    return Stories.findOne(currentStory);
+  }
 });
 
 Router.route('/play/:story', function () {
@@ -36,6 +41,27 @@ Template.catalog.events({
   'click button': function () {
     var story = Stories.insert({title: 'My Title', author: 'Ricky'})
     Router.go('/edit/' + story);
+  }
+});
+
+Template.edit.helpers({
+});
+
+Template.edit.events({
+  'keyup [name=storyTitle]': function(event){
+    var documentId = this._id;
+    var storyTitle = $(event.target).val();
+    Stories.update({ _id: documentId }, {$set: { title: storyTitle }});
+  },
+  'keyup [name=storyAuthor]': function(event){
+    var documentId = this._id;
+    var storyAuthor = $(event.target).val();
+    Stories.update({ _id: documentId }, {$set: { author: storyAuthor }});
+  },
+  'keyup [name=storyContent]': function(event) {
+    var documentId = this._id;
+    var storyContent = $(event.target).val();
+    Stories.update({ _id: documentId }, {$set: { story: storyContent }}); 
   }
 });
 

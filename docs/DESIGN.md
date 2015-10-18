@@ -12,17 +12,13 @@ What we want as the stories to be stored as:
     author: "my author",
     grade: 4,
     cover: "COVER IMAGE ID",
-    story: [
-      {
-        sentences: [
-          { 
-            id: "SENTENCE ID",
-            sentence: "hello world",
-            words: [
-              { id: "WORD ID", word: "hello", "start": 1, "stop": 1.9 },
-              { id: "WORD ID", word: "world", "start": 2.5, "stop": 3.1 }
-            ]
-          }
+    sentences: [
+      { 
+        id: "SENTENCE ID",
+        sentence: "hello world",
+        words: [
+          { id: "WORD ID", word: "hello", "start": 1, "stop": 1.9 },
+          { id: "WORD ID", word: "world", "start": 2.5, "stop": 3.1 }
         ]
       }
     ]

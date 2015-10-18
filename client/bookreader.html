@@ -8,10 +8,6 @@
       <li>
         <a href="/catalog">Catalog</a>
       </li>
-
-      <li>
-        <a href="/record">Record</a>
-      </li>
     </ul>
   </nav>
 
@@ -21,15 +17,20 @@
 </template>
 
 <template name="catalog">
-<ul>
-{{#each stories}}
+  <ul>
+  {{#each stories}}
+    {{> story}}
+  {{/each}}
+  </ul>
+<button id="create">Create</button>
+</template>
+
+<template name="story">
   <li>
     <h2><a href="/play/{{_id}}">{{title}}</a></h2>
     <h3>{{author}}</h3>
+    <a href="/edit/{{_id}}">Edit</a>
   </li>
-{{/each}}
-</ul>
-<button id="create">Create</button>
 </template>
 
 <template name="editaudio">
@@ -40,9 +41,25 @@
 </template>
 
 <template name="edit">
+
+  <form>
+    <h2>Title</h2>
+    <input type="text" name="storyTitle" value="{{title}}">
+    <h2>Author</h2>
+    <input type="text" name="storyAuthor" value="{{author}}">
+    <h2>Grade</h2>
+    <input type="text" name="storyAuthor" value="{{grade}}">
+    <h2>Sentences</h2>
+    <textarea name="storyContent" rows=20 cols=80></textarea>
+    {{#each sentences}}
+      {{>sentence}}
+    {{/each}}
+  </form>
 </template>
 
-
+<template name="sentence">
+    <div>{{sentence}}</div>
+</template>
 
 <template name="play">
 
