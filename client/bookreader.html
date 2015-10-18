@@ -41,20 +41,18 @@
 </template>
 
 <template name="edit">
-
-  <form>
-    <h2>Title</h2>
-    <input type="text" name="storyTitle" value="{{title}}">
-    <h2>Author</h2>
-    <input type="text" name="storyAuthor" value="{{author}}">
-    <h2>Grade</h2>
-    <input type="text" name="storyAuthor" value="{{grade}}">
-    <h2>Sentences</h2>
-    <textarea name="storyContent" rows=20 cols=80></textarea>
-    {{#each sentences}}
-      {{>sentence}}
-    {{/each}}
-  </form>
+  <h2>Title</h2>
+  <input type="text" name="storyTitle" value="{{title}}">
+  <h2>Author</h2>
+  <input type="text" name="storyAuthor" value="{{author}}">
+  <h2>Grade</h2>
+  <input type="text" name="storyGrade" value="{{grade}}">
+  <h2>Story</h2>
+  <button id="import">Import</button>
+  <textarea name="storyContent" value="{{story}}" rows=20 cols=80></textarea>
+  {{#each sentences}}
+    {{>sentence}}
+  {{/each}}
 </template>
 
 <template name="sentence">

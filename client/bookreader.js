@@ -48,20 +48,30 @@ Template.edit.helpers({
 });
 
 Template.edit.events({
-  'keyup [name=storyTitle]': function(event){
-    var documentId = this._id;
+  'keyup [name=storyTitle]': function(event) {
     var storyTitle = $(event.target).val();
-    Stories.update({ _id: documentId }, {$set: { title: storyTitle }});
+    Stories.update({ _id: this._id }, {$set: { title: storyTitle }});
   },
-  'keyup [name=storyAuthor]': function(event){
-    var documentId = this._id;
-    var storyAuthor = $(event.target).val();
-    Stories.update({ _id: documentId }, {$set: { author: storyAuthor }});
+  'keyup [name=storyAuthor]': function(event) {
+   var storyAuthor = $(event.target).val();
+    Stories.update({ _id: this._id }, {$set: { author: storyAuthor }});
   },
   'keyup [name=storyContent]': function(event) {
-    var documentId = this._id;
     var storyContent = $(event.target).val();
-    Stories.update({ _id: documentId }, {$set: { story: storyContent }}); 
+    Stories.update({ _id: this._id }, {$set: { story: storyContent }}); 
+    console.log('story updated');
+  },
+  'keyup [name=storyGrade]': function(event) {
+    var storyGrade = $(event.target).val();
+    Stories.update({ _id: this._id }, {$set: { grade: Number.parseInt(storyGrade) }}); 
+    console.log('story updated');
+  },
+  'click #import': function () {
+    var sentences = this.story.split('\n');
+    var sentencesArray = sentences.map(function(sentence) {
+      return { sentence: sentence, start: null, end: null, recording: null}
+    });
+    Stories.update({ _id: this._id }, {$set: { sentences: sentencesArray }}); 
   }
 });
 
