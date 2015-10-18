@@ -1,0 +1,7 @@
+.storydiv {
+	width: 200px;
+	display: inline-block;
+}
+.storydiv img {
+	width: 100%;
+}

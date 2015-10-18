@@ -1,0 +1,15 @@
+<template name="catalog">
+  {{#each stories}}
+    {{> story}}
+  {{/each}}
+<button id="create">Create</button>
+</template>
+
+<template name="story">
+  <div class="storydiv">
+    <h2><a href="/play/{{_id}}">{{title}}</a></h2>
+    <h3>{{author}}</h3>
+    <img src="http://c4.staticflickr.com/4/3288/3112596962_bb3de06fcc.jpg">
+    <a href="/edit/{{_id}}">Edit</a>
+  </div>
+</template>

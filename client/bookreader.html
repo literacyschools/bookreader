@@ -16,22 +16,7 @@
   </article>
 </template>
 
-<template name="catalog">
-  <ul>
-  {{#each stories}}
-    {{> story}}
-  {{/each}}
-  </ul>
-<button id="create">Create</button>
-</template>
 
-<template name="story">
-  <li>
-    <h2><a href="/play/{{_id}}">{{title}}</a></h2>
-    <h3>{{author}}</h3>
-    <a href="/edit/{{_id}}">Edit</a>
-  </li>
-</template>
 
 <template name="editaudio">
   <button id="start" disabled>Record</button>
