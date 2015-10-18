@@ -5,7 +5,7 @@ Meteor.subscribe('stories');
 
 Router.configure({
   layoutTemplate: 'ApplicationLayout',
-  template: 'edit'
+  // template: 'edit'
 })
 
 Router.route('/', function () {

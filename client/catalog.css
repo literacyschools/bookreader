@@ -2,6 +2,55 @@
 	width: 200px;
 	display: inline-block;
 }
-.storydiv img {
+.slider img {
 	width: 100%;
+}
+
+
+
+.slider{
+	position : relative;
+}
+.slider > div{
+	position : relative;
+	background:#ffffff;
+	overflow : hidden;
+	width : 100%;
+	height : 100%;
+}
+.slider > div ul, .slider > div ul li{
+	margin:0;
+	padding:0;
+	list-style:none;
+	cursor : pointer;
+}
+.slider > div ul li{ 
+	float : left;
+}
+.slider > .controls{
+	margin-top : 5px;
+	padding:0;
+	height:14px;
+	float : right;
+	margin-right : -5px;
+}
+.slider > .controls li{
+	margin:0 5px 0 0; 
+	padding:0;
+	float:left;
+	list-style:none;
+	height:14px;
+}
+.slider > .controls li a{
+	outline:none;
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	border-radius:7px;
+	width : 14px;
+	float:left;
+	height:14px;
+	background:#ffffff;
+}
+.slider > .controls li.current a{
+	background:#66CCFF;
 }

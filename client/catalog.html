@@ -1,15 +1,41 @@
 <template name="catalog">
+  <div id="outerWrapper">
+  <div id="slider2" class="slider">
+  <div>
+  <ul>
   {{#each stories}}
     {{> story}}
   {{/each}}
+  </ul>
+  </div>
+  </div>
+
+  <div id="slider3" class="slider">
+  <div>
+  <ul>
+  <li style="border: 0px solid grey">
+    <img style="position: absolute" src="\images\rabbit.jpg">
+    <h2 style="position: absolute; margin-top: 5px; margin-left: 5px"><a href="/play/{{_id}}">Trip</a></h2>
+    <h3 style="position: absolute; margin-top: 40px; margin-left: 5px">Alfred Zuk</h3>
+    <a href="/edit/{{_id}}">Edit</a></li>
+  <li style="border: 0px solid grey">
+    <img style="position: absolute" src="\images\losthat.jpg">
+    <h2 style="position: absolute; margin-top: 5px; margin-left: 5px"><a href="/play/{{_id}}">Hat</a></h2>
+    <h3 style="position: absolute; margin-top: 40px; margin-left: 5px">Alfred Zuk</h3>
+    <a href="/edit/{{_id}}">Edit</a></li>
+  <li style="border: 0px solid grey">Third screen</li>
+  </ul>
+  </div>
+  </div>
+  </div>
 <button id="create">Create</button>
 </template>
 
 <template name="story">
-  <div class="storydiv">
+  <li style="border: 1px solid black">
     <h2><a href="/play/{{_id}}">{{title}}</a></h2>
     <h3>{{author}}</h3>
-    <img src="http://c4.staticflickr.com/4/3288/3112596962_bb3de06fcc.jpg">
+    <img src="\images\rabbit.jpg">
     <a href="/edit/{{_id}}">Edit</a>
-  </div>
+  </li>
 </template>
