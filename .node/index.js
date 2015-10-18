@@ -9,58 +9,67 @@ var speech_to_text = watson.speech_to_text({
   version: 'v1'
 });
 
-var createStory = function(ibmJson, originalSentences, callback) {
-  var story = {};
-  story.title = 'TITLE';
-  story.author = 'AUTHOR';
-  story.grade = 4;
-  story.cover = 'COVER IMAGE ID';
-  story.sentences = [];
+var proccessSentence = function(ibmJson, originalSentenceObject, callback) {
 
-  var sentences = story.sentences;
+  var originalSentence = originalSentenceObject.sentence;
+  var ibmSentence = ibmJson.results[0].alternatives[0];
+  var originalWords = originalSentence.split(' ');
 
-  ibmJson.results.forEach(function(ibmSentence){
-    var sentence = {};
-    sentence.id = 'SENTENCE ID';
-    sentence.sentence = ibmSentence.alternatives[0].transcript;
-    sentence.words = [];
+  originalSentenceObject.words = convertIbmTimestamps(ibmSentence.timestamps)
+  originalSentenceObject.confidence = ibmSentence.confidence;
 
-    ibmSentence.alternatives[0].timestamps.forEach(function(ibmWord){
-      var word = {};
-      word.id = 'WORD ID';
-      word.word = ibmWord[0];
-      word.start = ibmWord[1];
-      word.end = ibmWord[2];
-      sentence.words.push(word);
-    })
-    sentences.push(sentence);
-  })
-
-  // check sentence with original sentences
-  if(sentences.length != originalSentences.length){
-    // var error = {
-    //   "status": "error",
-    //   "message": "number of senteces do not match"
-    // }
-    // return callback(error);
-    return callback(null, story);
+  if(ibmJson.results.length != 1){
+    originalSentenceObject.status = {
+      code: 100,
+      message: 'sentence count is more than one'
+    };
+    return callback(null, originalSentenceObject);
   }
 
-  sentences.forEach(function(sentence, i){
-    var originalSentence = originalSentences[i];
-    var originalWords = originalSentence.split(' ');
-    if(sentence.length == originalWords.length){
-      sentence.sentence = originalSentence;
-      sentence.forEach(function(word, j){
-        word.word = originalWords[j];
-      })
-    }
+  if(originalSentenceObject.words.length != originalWords.length){
+    originalSentenceObject.status = {
+      code: 101,
+      message: 'word count do not match'
+    };
+    return callback(null, originalSentenceObject);;
+  }
+
+  if(originalSentenceObject.confidence < 0.6){
+    originalSentenceObject.status = {
+      code: 102,
+      message: 'confidence below 0.6'
+    };
+    return callback(null, originalSentenceObject);;
+  }
+
+  correctWords(originalSentenceObject.words, originalWords);
+  originalSentenceObject.status = {
+    code: 0,
+    message: 'words autocorrection applied'
+  };
+  return callback(null, originalSentenceObject);;
+}
+
+var convertIbmTimestamps = function(ibmTimestamps){
+  var words = [];
+  ibmTimestamps.forEach(function(timestamp, i){
+    var word = {};
+    word.word = timestamp[0];
+    word.start = timestamp[1];
+    word.end = timestamp[2];
+    words.push(word);
   })
-  return callback(null, story);
+  return words;
+}
+
+var correctWords = function(recordedWords, originalWords){
+  recordedWords.forEach(function(recordedWord, i){
+    recordedWord.word = originalWords[i];
+  })
 }
 
 var start = function(filename, 
-                     originalSentences,
+                     originalSentenceObject,
                      callback) {
   var params = {
     // From file
@@ -77,24 +86,18 @@ var start = function(filename,
       return callback(err);
     }
     else{
-      var story = createStory(res, 
-                              convertTextToJson(originalSentences), 
-                              callback);
+      var story = proccessSentence(res, 
+                                   originalSentenceObject, 
+                                   callback);
       return story;
-      // console.log(JSON.stringify(story, null, 2));
     }
   })
 };
 
-var convertTextToJson = function(originalTxt){
-  // console.log(originalTxt)
-  var originalTextJson = {};
-  originalTextJson.originalSentences = originalTxt.split('.\n');
-  return originalTextJson;
+var originalSentenceObject = {
+  sentence: 'The child crawled into the dense grass'
 }
-
-var originalSentences = fs.readFileSync('./audio8.original.txt', 'utf8');
-// start('./audio8.wav', originalSentences, function(err, story){
+// start('./audio10.wav', originalSentenceObject, function(err, story){
 //   if(err){
 //     return console.log(err);
 //   }
