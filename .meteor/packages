@@ -24,3 +24,7 @@ less
 nemo64:bootstrap
 iron:router
 universe:audio-recorder
+meteorhacks:npm
+
+
+npm-container
