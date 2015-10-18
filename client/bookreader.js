@@ -75,39 +75,38 @@ Template.edit.events({
   }
 });
 
-Template.editaudio.rendered = function() {
-  var btnStopRecording = document.getElementById("stop");
-  btnStopRecording.onclick = function () {
+Template.editaudio.helpers = function() {
+
+}
+
+Template.editaudio.events = function() {
+  'click #stop':  function () {
       audio.stopRecording();
-      console.log("stop recording");
       btnStopRecording.disabled = true;
       btnStartRecording.disabled = false;
-  };
+  },
 
-  var btnStartRecording = document.getElementById("start");
-  btnStartRecording.onclick = function () {
+  'click #start':  function () {
     console.log("start recording");
     btnStopRecording.disabled = false;
     btnStartRecording.disabled = true;
-    audio.startRecording();
+    audio.startRecording({}, function(err, id) {
+      console.log('audio id ' + id  + ' for story ' + this._id + ' sentence ' + sentence);
+      this.recording = id;
+    });
   };
 
-  var btnPlayRecording = document.getElementById("play");
-  btnPlayRecording.onclick = function () {
-    console.log("start recording");
-    var audioDoc = audio.findOne();
-    audioDoc.play();
-    var btnStopPlaying = document.getElementById("stopplay");
-
-  };
-
-  var btnStopPlaying = document.getElementById("stopplay");
-  btnStopPlaying.onclick = function () {
-    console.log("start recording");
+  'click #play':  function () {
+    console.log("start playback");
     var audioDoc = audio.findOne();
     audioDoc.play();
   };
 
+  'click #stopplay':  function () {
+    console.log("stop playback");
+    var audioDoc = audio.findOne();
+    audioDoc.stop();
+  };
 
   btnStartRecording.disabled = false;
   btnStopRecording.disabled = true;
