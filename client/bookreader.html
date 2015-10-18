@@ -38,6 +38,7 @@
   <button id="stop" disabled>Stop</button>
   <button id="play">Play</button>
   <button id="stopplay">Stop Play</button>
+   {{_id}}
 </template>
 
 <template name="edit">
@@ -51,12 +52,14 @@
   <button id="import">Import</button>
   <textarea name="storyContent" value="{{story}}" rows=20 cols=80></textarea>
   {{#each sentences}}
-    {{>sentence}}
+    {{>sentence}} 
   {{/each}}
 </template>
 
 <template name="sentence">
-    <div>{{sentence}}</div>
+   <div>{{sentence}}</div> 
+   <div>start: {{start}} end: {{end}} recording: {{recording}}</div>
+   {{> editaudio}}
 </template>
 
 <template name="play">
