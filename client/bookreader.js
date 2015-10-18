@@ -102,8 +102,7 @@ Template.editaudio.events({
     this.audioDoc.play();
   },
 
-  'click #stopplay':  function () {
-    console.log("stop playback");
-    this.audioDoc.stop();
+  'click #words':  function () {
+    console.log("convert to words");
   }
 });
