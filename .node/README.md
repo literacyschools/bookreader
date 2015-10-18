@@ -43,4 +43,8 @@ message: 'confidence below 0.6'
 
 code: 0,
 message: 'words autocorrection applied'
+
+code: 9,
+message: 'invalid input'
 ```
+

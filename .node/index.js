@@ -17,6 +17,7 @@ var proccessSentence = function(ibmJson, originalSentenceObject, callback) {
 
   originalSentenceObject.words = convertIbmTimestamps(ibmSentence.timestamps)
   originalSentenceObject.confidence = ibmSentence.confidence;
+  originalSentenceObject.recordedSentence = ibmSentence.transcript;
 
   if(ibmJson.results.length != 1){
     originalSentenceObject.status = {
@@ -71,6 +72,15 @@ var correctWords = function(recordedWords, originalWords){
 var start = function(filename, 
                      originalSentenceObject,
                      callback) {
+
+  if(!originalSentenceObject || !originalSentenceObject.sentence){
+    callback({
+      code: 9,
+      message: 'invalid input'
+    })
+    return;
+  }
+
   var params = {
     // From file
     audio: fs.createReadStream(filename),
